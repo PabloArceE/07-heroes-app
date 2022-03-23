@@ -1,12 +1,8 @@
-import React from "react"
-import { AppRouter } from "./routers/AppRouter"
+import React from "react";
+import { AppRouter } from "./routers/AppRouter";
 
 const HeroesApp = () => {
-  return (
-    <>  
-        <AppRouter />
-    </>
-  )
-}
+  return <AppRouter />
+};
 
-export default HeroesApp
+export default HeroesApp;
