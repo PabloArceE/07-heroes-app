@@ -1,11 +1,27 @@
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../auth/authContext";
+import { types } from "../../types/types";
 
 const LoginScreen = () => {
+  const {
+    user: { logged },
+    dispatch,
+  } = useContext(AuthContext);
+
+  console.log(logged);
+
   const navegate = useNavigate();
+  useEffect(() => {
+    logged && navegate("/marvel");    
+  }, [logged, navegate])
 
   const handleLogin = () => {
-    navegate("/marvel", {
-      replace: true,
+    dispatch({
+      type: types.login,
+      payload: {
+        name: "Pablo Arce",
+      },
     });
   };
 
