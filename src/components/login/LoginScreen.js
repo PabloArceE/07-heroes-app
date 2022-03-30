@@ -9,13 +9,10 @@ const LoginScreen = () => {
     dispatch,
   } = useContext(AuthContext);
 
-  console.log(logged);
-
   const navegate = useNavigate();
-  useEffect(() => {
-    logged && navegate("/marvel");    
-  }, [logged, navegate])
 
+  const initialScreen = localStorage.getItem("lastPath");
+  
   const handleLogin = () => {
     dispatch({
       type: types.login,
@@ -23,6 +20,7 @@ const LoginScreen = () => {
         name: "Pablo Arce",
       },
     });
+    navegate(initialScreen);
   };
 
   return (
